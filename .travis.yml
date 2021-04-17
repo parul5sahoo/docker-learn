@@ -1,0 +1,11 @@
+language: generic 
+sudo: required
+services:
+    - docker
+    
+before_install:
+    - docker build -t parul5sahoo/docker-learn -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true parul5sahoo/docker-learn npm run test
+      
